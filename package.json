@@ -1,12 +1,8 @@
 {
   "name": "mess",
   "version": "0.1.0",
+  "author": "lencx <cxin1314@gmail.com",
   "private": true,
-  "dependencies": {
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-scripts": "3.2.0"
-  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -27,5 +23,17 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "dependencies": {
+    "antd": "^3.25.3",
+    "array-move": "^2.2.0",
+    "lodash": "^4.17.15",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.2.0",
+    "styled-components": "^4.4.1",
+    "uuid": "^3.3.3"
+  },
+  "devDependencies": {}
 }
