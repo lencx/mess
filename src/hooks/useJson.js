@@ -3,8 +3,10 @@ import uuid from 'uuid/v4';
 import * as _ from 'lodash';
 import arrayMove from 'array-move';
 
-export default ({ dataSource }) => {
-  const [state, setState] = useReducer((o, n) => ({ ...o, ...n }), { dataSource });
+export default (props) => {
+  const [state, setState] = useReducer((o, n) => ({ ...o, ...n }), {
+    dataSource: props.dataSource,
+  });
 
   // const get = path => _.flatten(_.get(state.dataSource, path));
   const get = path => _.get(state.dataSource, path);
@@ -27,6 +29,7 @@ export default ({ dataSource }) => {
 
     _.set(data, path, tmp);
     setState({ dataSource: data });
+    return data;
   };
 
   const remove = path => {
@@ -46,6 +49,7 @@ export default ({ dataSource }) => {
       _.unset(data, path);
     }
     setState({ dataSource: data });
+    return data;
   };
 
   const sort = (path, from, to) => {
@@ -54,19 +58,21 @@ export default ({ dataSource }) => {
     let moveData = arrayMove(getData, from, to);
     _.set(data, path, moveData);
     setState({ dataSource: data });
+    return data;
   };
 
-  const update = (path, value) => {
+  const set = (path, value) => {
     let data = _.cloneDeep(state.dataSource);
     _.set(data, path, value);
     setState({ dataSource: data });
+    return data;
   }
 
-  return [state.dataSource, {
+  return {
     get,
     add,
+    set,
     sort,
-    update,
     remove,
-  }];
+  };
 };
