@@ -1,4 +1,3 @@
-
 export const is = (val, type) => Object.prototype.toString.call(val) === `[object ${type}]`;
 export const isObj = val => is(val, 'Object');
 export const isArray = val => is(val, 'Array');

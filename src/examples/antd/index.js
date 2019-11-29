@@ -1,23 +1,22 @@
 import React from 'react';
-import { Form } from 'antd';
-import ModuleOne from './comps/MdouleOne';
+import 'antd/dist/antd.css';
+
+import FormControls from 'components/FormControls';
+import ModuleOne from './comps/ModuleOne';
+import ModuleTwo from './comps/ModuleTwo';
 
 export default () => {
-  const FormControls = Form.create({
-    onValuesChange(props, changedValues) {
-      console.log(changedValues)
-    }
-  })((props) => {
-    console.log(props)
-    return <ModuleOne {...props} />;
-  })
-
-  return <FormControls />
+  return (
+    <FormControls>
+      <ModuleOne />
+      <ModuleTwo />
+    </FormControls>
+  );
 }
 
 // // Demo
 // export default () => {
-//   const [config, { add, remove, get, sort }] = useList({ dataSource: {
+//   const [config, { add, remove, get, sort }] = useJson({ dataSource: {
 //     a: 1,
 //     b: 2,
 //     c: [1,3,4,5],
